@@ -23,7 +23,7 @@ public class UnitTestingGenerator : MonoBehaviour
     [SerializeField] private TestSliderElement m_templateTestSliderElement;
     [SerializeField] private TestToggleElement m_templateTestToggleElement;
 
-    private float m_maxWidth;
+    private float m_maxWidth = 0f;
     private float m_spaceWidth;
     private BaseUnitTesting[] m_unitTestings;
 
@@ -37,13 +37,6 @@ public class UnitTestingGenerator : MonoBehaviour
             }
         }
 
-        m_maxWidth = GetComponentInParent<Canvas>().GetComponent<RectTransform>().sizeDelta.x;
-        if (null != GetComponentInParent<UnitTestingDragHelper>())
-        {
-            m_maxWidth *= UnitTestingDragHelper.FULL_SIZE_RATIO;
-        }
-
-        m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
         m_spaceWidth = m_templateParent.GetComponent<GridLayoutGroup>().spacing.x;
 
         StartCoroutine(Generate());
@@ -81,10 +74,18 @@ public class UnitTestingGenerator : MonoBehaviour
             cacheInstance.GetComponent<Text>().text = m_unitTestings[i].GetType().Name;
             cacheInstance.SetActive(true);
 
-            yield return new WaitForEndOfFrame();
+            if (m_maxWidth == 0)
+            {
+                yield return new WaitForEndOfFrame();
 
-            m_maxWidth = cacheInstance.GetComponent<RectTransform>().sizeDelta.x;
-            m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
+                m_maxWidth = cacheInstance.GetComponent<RectTransform>().sizeDelta.x;
+                if (null != GetComponentInParent<UnitTestingDragHelper>())
+                {
+                    m_maxWidth *= UnitTestingDragHelper.FULL_SIZE_RATIO;
+                }
+
+                m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
+            }
 
             GameObject cacheParent = Instantiate<GameObject>(m_templateParent.gameObject, m_contentRoot);
             cacheParent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(m_maxWidth / 2 - m_spaceWidth, 100);
