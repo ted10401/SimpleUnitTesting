@@ -27,10 +27,8 @@ public class UnitTestingGenerator : MonoBehaviour
     private float m_spaceWidth;
     private BaseUnitTesting[] m_unitTestings;
 
-    private IEnumerator Start()
+    private void Awake()
     {
-        yield return new WaitForEndOfFrame();
-
         if (null != m_closeButton)
         {
             if (null != GetComponentInParent<UnitTestingDragHelper>())
@@ -48,18 +46,18 @@ public class UnitTestingGenerator : MonoBehaviour
         m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
         m_spaceWidth = m_templateParent.GetComponent<GridLayoutGroup>().spacing.x;
 
-        Generate();
+        StartCoroutine(Generate());
     }
 
 
-    private void Generate ()
+    private IEnumerator Generate ()
     {
         Clear();
 
         if (null == m_unitTestingObject)
         {
             Debug.LogError("[UnitTestingGenerator] m_unitTestingObject is null.");
-            return;
+            yield break;
         }
 
         m_unitTestings = m_unitTestingObject.GetComponents<BaseUnitTesting>();
@@ -67,7 +65,7 @@ public class UnitTestingGenerator : MonoBehaviour
             m_unitTestings.Length < 1)
         {
             Debug.LogError("[UnitTestingGenerator] No unit testing scripts in \"" + m_unitTestingObject.name + "\"");
-            return;
+            yield break;
         }
 
         GameObject cacheInstance = null;
@@ -83,6 +81,11 @@ public class UnitTestingGenerator : MonoBehaviour
             cacheInstance.GetComponent<Text>().text = m_unitTestings[i].GetType().Name;
             cacheInstance.SetActive(true);
 
+            yield return new WaitForEndOfFrame();
+
+            m_maxWidth = cacheInstance.GetComponent<RectTransform>().sizeDelta.x;
+            m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
+
             GameObject cacheParent = Instantiate<GameObject>(m_templateParent.gameObject, m_contentRoot);
             cacheParent.GetComponent<GridLayoutGroup>().cellSize = new Vector2(m_maxWidth / 2 - m_spaceWidth, 100);
             cacheParent.SetActive(true);
@@ -93,10 +96,6 @@ public class UnitTestingGenerator : MonoBehaviour
             if (cacheParent.transform.childCount == 0)
             {
                 Destroy(cacheParent);
-            }
-            else
-            {
-
             }
 
             cacheParent = Instantiate<GameObject>(m_templateParent.gameObject, m_contentRoot);
@@ -115,7 +114,7 @@ public class UnitTestingGenerator : MonoBehaviour
             cacheInstance = Instantiate<GameObject>(m_templateSpace.gameObject, m_contentRoot);
             cacheInstance.SetActive(true);
         }
-    }
+	}
 
 
     private void Clear()
