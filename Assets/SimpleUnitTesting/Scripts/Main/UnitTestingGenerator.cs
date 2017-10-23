@@ -79,11 +79,6 @@ public class UnitTestingGenerator : MonoBehaviour
                 yield return new WaitForEndOfFrame();
 
                 m_maxWidth = cacheInstance.GetComponent<RectTransform>().sizeDelta.x;
-                if (null != GetComponentInParent<UnitTestingDragHelper>())
-                {
-                    m_maxWidth *= UnitTestingDragHelper.FULL_SIZE_RATIO;
-                }
-
                 m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
             }
 

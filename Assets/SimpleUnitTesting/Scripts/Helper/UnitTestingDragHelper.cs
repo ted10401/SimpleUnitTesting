@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class UnitTestingDragHelper : MonoBehaviour
@@ -42,11 +43,20 @@ public class UnitTestingDragHelper : MonoBehaviour
         m_maxHeight = m_canvas.GetComponent<RectTransform>().sizeDelta.y / 2;
         m_maxWidth = m_canvas.GetComponent<RectTransform>().sizeDelta.x / 2;
 
-        m_initSizeDelta = m_rectTransform.sizeDelta;
-        m_fullSizeDelta = new Vector2(m_maxWidth * 2, m_maxHeight * 2) * FULL_SIZE_RATIO;
-
         m_dragImage.SetActive(true);
         m_fullScreen.SetActive(false);
+    }
+
+
+    private IEnumerator Start()
+    {
+        yield return new WaitForEndOfFrame();
+
+        m_maxHeight = m_canvas.GetComponent<RectTransform>().sizeDelta.y / 2;
+        m_maxWidth = m_canvas.GetComponent<RectTransform>().sizeDelta.x / 2;
+
+        m_initSizeDelta = m_rectTransform.sizeDelta;
+        m_fullSizeDelta = new Vector2(m_maxWidth * 2, m_maxHeight * 2) * FULL_SIZE_RATIO;
 
         OnDragEnd(null);
     }
