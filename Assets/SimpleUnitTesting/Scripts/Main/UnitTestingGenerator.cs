@@ -27,14 +27,24 @@ public class UnitTestingGenerator : MonoBehaviour
     private float m_spaceWidth;
     private BaseUnitTesting[] m_unitTestings;
 
-    private void Awake()
+    private IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
+
         if (null != m_closeButton)
         {
-            m_closeButton.onClick.AddListener(GetComponentInParent<UnitTestingDragHelper>().OnFullScreenCloseButtonClicked);
+            if (null != GetComponentInParent<UnitTestingDragHelper>())
+            {
+                m_closeButton.onClick.AddListener(GetComponentInParent<UnitTestingDragHelper>().OnFullScreenCloseButtonClicked);
+            }
         }
 
-        m_maxWidth = GetComponentInParent<Canvas>().GetComponent<RectTransform>().sizeDelta.x * UnitTestingDragHelper.FULL_SIZE_RATIO;
+        m_maxWidth = GetComponentInParent<Canvas>().GetComponent<RectTransform>().sizeDelta.x;
+        if (null != GetComponentInParent<UnitTestingDragHelper>())
+        {
+            m_maxWidth *= UnitTestingDragHelper.FULL_SIZE_RATIO;
+        }
+
         m_maxWidth -= m_contentRoot.GetComponent<VerticalLayoutGroup>().padding.left * 2;
         m_spaceWidth = m_templateParent.GetComponent<GridLayoutGroup>().spacing.x;
 
@@ -86,7 +96,7 @@ public class UnitTestingGenerator : MonoBehaviour
             }
             else
             {
-                
+
             }
 
             cacheParent = Instantiate<GameObject>(m_templateParent.gameObject, m_contentRoot);
@@ -105,7 +115,7 @@ public class UnitTestingGenerator : MonoBehaviour
             cacheInstance = Instantiate<GameObject>(m_templateSpace.gameObject, m_contentRoot);
             cacheInstance.SetActive(true);
         }
-	}
+    }
 
 
     private void Clear()
