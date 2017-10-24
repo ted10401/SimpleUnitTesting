@@ -68,27 +68,27 @@ System requirements:
 
 3. Drag UnitTestingGenerator in Canvas
 
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_drag_generator.png" height="250px" />
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_drag_generator.png" height="500px" />
 
 
 4. Write new test method with custom attributes
 
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_write_script.png" height="250px" />
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_write_script.png" height="500px" />
 
 
 5. Add component to UnitTestingObject
 
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_add_component.png" height="250px" />
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_add_component.png"/>
 
 
 6. Play
 
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_play.png" height="250px" />
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_example.gif" height="250px" />
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_step_play.png"/>
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_example.gif"/>
 
 
 ## Drag Helper
 The UnitTestingDragHelper is a simple switch to open/close the unit testing screen.
 The idea is from iOS AssistiveTouch.
 
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_drag_helper.gif" height="250px" />
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_drag_helper.gif"/>
