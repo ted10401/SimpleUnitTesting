@@ -84,3 +84,11 @@ System requirements:
 6. Play
 
 ![click Get Resources](GithubResources/simple_unit_testing_step_play.png)
+![click Get Resources](GithubResources/simple_unit_testing_example.gif)
+
+
+## Drag Helper
+The UnitTestingDragHelper is a simple switch to open/close the unit testing screen.
+The idea is from iOS AssistiveTouch.
+
+![click Get Resources](GithubResources/simple_unit_testing_drag_helper.gif)
