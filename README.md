@@ -24,39 +24,35 @@ System requirements:
 
 <img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_script_button.png" height="75px" />
 
-<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_ui_button.png" height="50px" />
-
-![click Get Resources](GithubResources/simple_unit_testing_script_button.png)
-
-![click Get Resources](GithubResources/simple_unit_testing_ui_button.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_ui_button.png" height="25px" />
 
 
 [TestDropdown]
 
-![click Get Resources](GithubResources/simple_unit_testing_script_dropdown.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_script_dropdown.png" height="75px" />
 
-![click Get Resources](GithubResources/simple_unit_testing_ui_dropdown.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_ui_dropdown.png" height="25px" />
 
 
 [TestInputField]
 
-![click Get Resources](GithubResources/simple_unit_testing_script_inputfield.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_script_inputfield.png" height="75px" />
 
-![click Get Resources](GithubResources/simple_unit_testing_ui_inputfield.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_ui_inputfield.png" height="25px" />
 
 
 [TestSlider]
 
-![click Get Resources](GithubResources/simple_unit_testing_script_slider.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_script_slider.png" height="75px" />
 
-![click Get Resources](GithubResources/simple_unit_testing_ui_slider.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_ui_slider.png" height="25px" />
 
 
 [TestToggle]
 
-![click Get Resources](GithubResources/simple_unit_testing_script_toggle.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_script_toggle.png" height="75px" />
 
-![click Get Resources](GithubResources/simple_unit_testing_ui_toggle.png)
+<img src="https://github.com/ted10401/SimpleUnitTesting/blob/master/GithubResources/simple_unit_testing_ui_toggle.png" height="25px" />
 
 
 ## How to setup new unit testing
